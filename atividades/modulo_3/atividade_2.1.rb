@@ -11,23 +11,13 @@ class Vector2
     when Numeric
       Vector2.new(@x * other, @y * other)
     when Vector2
-      # Dot product
       @x * other.x + @y * other.y
     else
       raise TypeError, "Cannot multiply Vector2 with #{other.class}"
     end
   end
-
-  def coerce(other)
-    [self, other]
-  end
-
-  def to_s
-    "(#{@x}, #{@y})"
-  end
 end
 
-# Add multiplication support for Numeric * Vector2
 class Numeric
   def *(vector)
     if vector.is_a?(Vector2)
